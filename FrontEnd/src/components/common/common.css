@@ -1,0 +1,25 @@
+.btn {
+  width: 8.81rem;
+  height: 2.38rem;
+  transform: rotate(0deg);
+  opacity: 1;
+  gap: 0.5rem;
+  border-radius: 3.13rem;
+  padding: 0.5rem 2.5rem;
+  background-color: #4d007d;
+}
+
+.btn:active {
+  box-shadow: 0 0.25rem 1.25rem 0 rgba(18, 18, 18, 0.15);
+  animation-duration: 0ms;
+}
+
+.btn-text{
+  /* font-family: 'Nunito', sans-serif; */
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem; 
+  line-height: 1; 
+  letter-spacing: 0;
+  color: white;
+}

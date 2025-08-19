@@ -1,0 +1,38 @@
+import "./forms.css";
+function Input({
+  label,
+  type = "text",
+  name,
+  value,
+  onChange,
+  placeholder = "",
+  error = "",
+  required = false,
+  disabled = false,
+}) {
+  return (
+    <div className="form-group">
+      {label && (
+        <label htmlFor={name} className="form-label">
+          {label}{required && "*"}
+        </label>
+      )}
+
+      <input
+        id={name}
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        disabled={disabled}
+        required={required}
+        className={`form-input ${error ? "input-error" : ""}`}
+      />
+
+      {error && <p className="error-text">{error}</p>}
+    </div>
+  );
+}
+
+export default Input;
