@@ -1,0 +1,35 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 0.75rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.custom-table th {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.custom-table tr:nth-child(even) {
+  /* background-color: #fafafa; */
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
+}

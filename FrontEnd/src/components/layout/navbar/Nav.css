@@ -1,0 +1,21 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 20px;
+  height: 72px;
+}
+
+.navBar .activeNav h2 {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.navBar .profile img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 16px;
+}

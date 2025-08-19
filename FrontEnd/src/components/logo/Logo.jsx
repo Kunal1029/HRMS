@@ -1,9 +1,9 @@
 import "./logo.css"
-function Logo() {
+function Logo({classLogo, logo}) {
   return (
-    <div className="dash-logo">
+    <div className={`${classLogo ? classLogo : "dash-logo"}`}>
       <img src="./dash-logo.png" alt="" />
-      <h2>LOGO</h2>
+      <h2>{logo ? logo : "LOGO"}</h2>
     </div>
   )
 }

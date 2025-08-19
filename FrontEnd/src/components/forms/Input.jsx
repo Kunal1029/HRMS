@@ -9,9 +9,10 @@ function Input({
   error = "",
   required = false,
   disabled = false,
+  formType = false
 }) {
   return (
-    <div className="form-group">
+    <div className={`${formType === "search" ? "" : "form-group"} `}>
       {label && (
         <label htmlFor={name} className="form-label">
           {label}{required && <span>*</span>}
@@ -27,7 +28,7 @@ function Input({
         placeholder={placeholder}
         disabled={disabled}
         required={required}
-        className={`form-input ${error ? "input-error" : ""}`}
+        className={`form-input ${error ? "input-error" : ""} ${formType === "search" ? "search-input" : "normal-input"}`}
       />
 
       {error && <p className="error-text">{error}</p>}

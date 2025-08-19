@@ -1,11 +1,10 @@
 import './App.css'
-// import Login from './pages/auth/Login'
-import UserForm from './pages/auth/UserForm'
+import MainLayout from './components/layout/MainLayout'
 
 function App() {
   return (
     <div>
-      <UserForm />
+      <MainLayout />
     </div>
   )
 }
