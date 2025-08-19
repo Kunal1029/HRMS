@@ -1,0 +1,16 @@
+.dash-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0px 1.5rem 0rem;
+}
+.dash-logo img {
+  width: 44px;
+  height: 44px;
+}
+.dash-logo h2 {
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  color: var(--color-primary);
+}

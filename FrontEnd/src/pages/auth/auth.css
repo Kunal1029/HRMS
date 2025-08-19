@@ -1,0 +1,83 @@
+.dash-form {
+  display: flex;
+  box-shadow: 0 0.25rem 3.125rem 0 #1212124d;
+  border-radius: 1.25rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.entry-form {
+  width: 100%;
+  height: 86.67vh;
+  border-width: 0.0625rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  gap: 1.25rem;
+}
+
+.entry-form h2 {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.25rem;
+}
+.entry-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+
+}
+
+.entry-form .formBTN {
+  margin-top: 0.8rem;
+}
+
+.formOption {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.875rem;
+  display: flex;
+  gap: 2px;
+}
+.formOption p {
+  color: var(--color-dark-gray);
+}
+.formOption span {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+@media (max-width: 900px) and (min-width: 768px) {
+  .entry-form {
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }
+  .dash-form {
+    border-radius: 0rem;
+    gap: 20px;
+    box-shadow: none;
+    padding: 2px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .dash-form {
+    flex-direction: column-reverse;
+    border-radius: 0rem;
+    box-shadow: none;
+    border-radius: 0px;
+    margin: auto;
+    padding: 0px;
+  }
+  .entry-form {
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    
+  }
+}

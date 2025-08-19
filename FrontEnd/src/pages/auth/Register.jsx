@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import Button from "../../components/common/Button";
 import Input from "../../components/forms/input";
+import "./auth.css";
 
-function Login() {
+function Register() {
   const [form, setForm] = useState({
+    fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -15,9 +18,19 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="entry-form">
+      <h2>Welcome to Dashboard</h2>
       <form>
-        
+        <Input
+          label="Full Name"
+          type="text"
+          name="fullName"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="Full Name"
+          error={errors.email}
+          required={true}
+        />
         <Input
           label="Email Address"
           type="email"
@@ -38,14 +51,32 @@ function Login() {
           error={errors.password}
           required={true}
         />
-        
+        <Input
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={form.e}
+          onChange={handleChange}
+          placeholder="Confirm Password"
+          error={errors.email}
+          required={true}
+        />
 
-        <Button type="submit" behaviour="primary" size="sm">
-          Login
+        <Button
+          classParent="formBTN"
+          type="submit"
+          behaviour="primary"
+          size="sm"
+        >
+          Register
         </Button>
       </form>
+
+      <div className="formOption">
+        <p>Already have an account?</p> <span>Login</span>
+      </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

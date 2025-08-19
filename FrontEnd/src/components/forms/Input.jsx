@@ -14,7 +14,7 @@ function Input({
     <div className="form-group">
       {label && (
         <label htmlFor={name} className="form-label">
-          {label}{required && "*"}
+          {label}{required && <span>*</span>}
         </label>
       )}
 
@@ -31,6 +31,7 @@ function Input({
       />
 
       {error && <p className="error-text">{error}</p>}
+
     </div>
   );
 }
