@@ -1,12 +1,7 @@
-import axios from "axios";
-
-const API = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
-
+import API from "./api"
 
 export const registerUser = async (userData) => {
-  // console.log(userData)
+  console.log(userData)
   const response = await API.post("/user/register", userData);
   return response.data;
 };
@@ -19,9 +14,14 @@ export const loginUser = async (userData) => {
 };
 
 
-export const getCurrentUser = async (token) => {
-  const response = await API.get("/user/me", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+export const getCurrentUser = async () => {
+  const response = await API.get("/user/user");
   return response.data;
 };
+
+
+export const logoutUser = async () => {
+  const response = await API.post("/users/logout");
+  return response.data;
+};
+

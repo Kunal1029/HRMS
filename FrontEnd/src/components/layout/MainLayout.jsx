@@ -9,7 +9,7 @@ function MainLayout() {
       <div className="">
         <Navbar />
 
-        <Candidate />
+        {/* <Candidate /> */}
       </div>
       <Sidebar />
     </div>

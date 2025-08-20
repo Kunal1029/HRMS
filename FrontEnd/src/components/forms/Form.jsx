@@ -1,14 +1,25 @@
+/* eslint-disable no-unused-vars */
 import Input from "./Input";
 import Button from "../common/Button";
+import { useState, useEffect } from "react";
+import { toast } from "sonner";
 
-import { useState } from "react";
-
-function Form({ fields = [], onSubmit, buttonText = "Submit" }) {
+function Form({
+  fields = [],
+  onSubmit,
+  buttonText = "Submit",
+  resetOnSuccess = true,
+  successMessage,
+  errorMessage,
+  success,
+  error,
+}) {
   const [formData, setFormData] = useState(
     fields.reduce((acc, f) => ({ ...acc, [f.name]: f.value || "" }), {})
   );
 
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,16 +29,29 @@ function Form({ fields = [], onSubmit, buttonText = "Submit" }) {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
+  const resetForm = () => {
+    setFormData(fields.reduce((acc, f) => ({ ...acc, [f.name]: "" }), {}));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = await onSubmit(formData);
-    
-    if (result && result.errors) {
+    const result = await onSubmit(formData, resetForm);
+
+    if (result?.errors) {
       setErrors(result.errors);
+      toast.error("Please fix the highlighted errors.");
     }
   };
 
+  useEffect(() => {
+    if (success) {
+      toast.success(successMessage || "Submitted successfully ✅");
+    }
+    if (error) {
+      toast.error(errorMessage || error);
+    }
+  }, [success, error, successMessage, errorMessage]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -47,9 +71,14 @@ function Form({ fields = [], onSubmit, buttonText = "Submit" }) {
         />
       ))}
 
-      
-      <Button classParent="formBTN" type="submit" behaviour="primary" size="sm">
-        {buttonText}
+      <Button
+        classParent="formBTN"
+        type="submit"
+        behaviour="primary"
+        size="sm"
+        disabled={submitting}
+      >
+        {submitting ? "Submitting..." : buttonText}
       </Button>
     </form>
   );

@@ -52,6 +52,16 @@
   cursor: pointer;
 }
 
+.formOption a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.formOption a:hover {
+  text-decoration: underline; 
+}
+
 @media (max-width: 900px) and (min-width: 768px) {
   .entry-form {
     border-top-right-radius: 0rem;

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Onboarding from "../../components/Onboarding/Onboarding";
 import Logo from "../../components/logo/Logo";
 import { selectFormType, setFormType } from "../../redux/slices/helperSlice";
+import Fallback from "../../components/common/Fallback";
 
 const Login = lazy(() => import("./Login"));
 const Register = lazy(() => import("./Register"));
@@ -27,8 +28,8 @@ function UserForm() {
       </div>
 
       <div className="dash-form">
-        <Onboarding />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Fallback />}>
+          <Onboarding />
           {formType === "login" ? <Login /> : <Register />}
         </Suspense>
       </div>
