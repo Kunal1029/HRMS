@@ -1,49 +1,45 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import Button from "../../components/common/Button";
-import Input from "../../components/forms/input";
+import Form from "../../components/forms/Form";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/slices/authSlice";
+import { setFormType } from "../../redux/slices/helperSlice";
+import "./auth.css";
 
 function Login() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({});
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const fields = [
+    { label: "Email Address", name: "email", type: "email", placeholder: "Email Address", required: true },
+    { label: "Password", name: "password", type: "password", placeholder: "Enter your password", required: true },
+  ];
+
+  const handleLogin = async (data) => {
+    let errors = {};
+    if (!data.email) errors.email = "Email required";
+    if (!data.password) errors.password = "Password required";
+
+    if (Object.keys(errors).length > 0) {
+      return { errors }; // Form.jsx will display these
+    }
+
+    // Dispatch login thunk
+    dispatch(login(data));
   };
 
   return (
-    <div>
-      <form>
-        
-        <Input
-          label="Email Address"
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Email Address"
-          error={errors.email}
-          required={true}
-        />
-        <Input
-          label="Password"
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          error={errors.password}
-          required={true}
-        />
-        
+    <div className="entry-form">
+      <h2>Welcome to Dashboard</h2>
+      <Form fields={fields} onSubmit={handleLogin} buttonText="Login" />
 
-        <Button type="submit" behaviour="primary" size="sm">
-          Login
-        </Button>
-      </form>
+      <div className="formOption">
+        <p>Don’t have an account?</p>{" "}
+        <Link
+          to="/auth/register"
+          onClick={() => dispatch(setFormType("register"))}
+        >
+          <span>Register</span>
+        </Link>
+      </div>
     </div>
   );
 }

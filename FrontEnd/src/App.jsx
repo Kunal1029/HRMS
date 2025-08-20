@@ -1,12 +1,19 @@
-import './App.css'
-import MainLayout from './components/layout/MainLayout'
+// App.jsx
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import UserForm from "./pages/auth/UserForm";
+import LocationTracker from './components/common/LocationTracker';
 
 function App() {
   return (
-    <div>
-      <MainLayout />
-    </div>
-  )
+    <BrowserRouter>
+    <LocationTracker />
+      <Routes>
+        <Route path="/auth/:formType" element={<UserForm />} />
+        <Route path="*" element={<Navigate to="/auth/login" />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
+

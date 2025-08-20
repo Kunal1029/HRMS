@@ -9,7 +9,7 @@
 .custom-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 700px;
 }
 
 .custom-table th,
@@ -25,9 +25,6 @@
   font-weight: 600;
 }
 
-.custom-table tr:nth-child(even) {
-  /* background-color: #fafafa; */
-}
 
 .no-data {
   text-align: center;

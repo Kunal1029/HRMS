@@ -1,79 +1,46 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import Button from "../../components/common/Button";
-import Input from "../../components/forms/input";
+import Form from "../../components/forms/Form";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/slices/authSlice";
+import { setFormType } from "../../redux/slices/helperSlice";
 import "./auth.css";
 
 function Register() {
-  const [form, setForm] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [errors, setErrors] = useState({});
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const fields = [
+    { label: "Full Name", name: "fullName", type: "text", placeholder: "Full Name", required: true },
+    { label: "Email", name: "email", type: "email", placeholder: "Email Address", required: true },
+    { label: "Password", name: "password", type: "password", placeholder: "Enter your password", required: true },
+    { label: "Confirm Password", name: "confirmPassword", type: "password", placeholder: "Confirm Password", required: true },
+  ];
+
+  const handleRegister = async (data) => {
+    let errors = {};
+    if (!data.fullName) errors.fullName = "Full name required";
+    if (!data.email) errors.email = "Email required";
+    if (data.password !== data.confirmPassword) errors.confirmPassword = "Passwords do not match";
+
+    if (Object.keys(errors).length > 0) {
+      return { errors };
+    }
+
+    dispatch(register(data));
   };
 
   return (
     <div className="entry-form">
       <h2>Welcome to Dashboard</h2>
-      <form>
-        <Input
-          label="Full Name"
-          type="text"
-          name="fullName"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Full Name"
-          error={errors.email}
-          required={true}
-        />
-        <Input
-          label="Email Address"
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Email Address"
-          error={errors.email}
-          required={true}
-        />
-        <Input
-          label="Password"
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          error={errors.password}
-          required={true}
-        />
-        <Input
-          label="Confirm Password"
-          type="password"
-          name="confirmPassword"
-          value={form.e}
-          onChange={handleChange}
-          placeholder="Confirm Password"
-          error={errors.email}
-          required={true}
-        />
-
-        <Button
-          classParent="formBTN"
-          type="submit"
-          behaviour="primary"
-          size="sm"
-        >
-          Register
-        </Button>
-      </form>
+      <Form fields={fields} onSubmit={handleRegister} buttonText="Register" />
 
       <div className="formOption">
-        <p>Already have an account?</p> <span>Login</span>
+        <p>Already have an account?</p>{" "}
+        <Link
+          to="/auth/login"
+          onClick={() => dispatch(setFormType("login"))}
+        >
+          <span>Login</span>
+        </Link>
       </div>
     </div>
   );
