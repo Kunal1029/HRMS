@@ -58,11 +58,38 @@
   align-items: center;
   gap: 16px;
   margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
+
+/* .middleBar .workOn:hover{
+  transform: scale(1.01);
+} */
+
+.activeTabStyle{
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
 .middleBar img{
   width: 16px;
   height: 14px;
 }
+.workOn .activeBar{
+  width: 8px;
+  background-color: var(--color-primary);
+  height: 38px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+  
+}
+.middleBar a{
+  text-decoration: none;
+  color: var(--color-black);
+  
+}
+
 .middleBar .workOn p{
   font-weight: 400;
   font-size: 1rem;

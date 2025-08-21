@@ -2,6 +2,7 @@ import Candidate from "../../pages/candidates/Candidate";
 import "./Layout.css";
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./navbar/Navbar";
+import { Outlet } from "react-router-dom";
 
 function MainLayout() {
   return (
@@ -9,7 +10,9 @@ function MainLayout() {
       <div className="">
         <Navbar />
 
-        {/* <Candidate /> */}
+        <div >
+          <Outlet />
+        </div>
       </div>
       <Sidebar />
     </div>

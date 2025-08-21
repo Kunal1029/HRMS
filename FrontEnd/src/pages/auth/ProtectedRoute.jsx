@@ -5,12 +5,12 @@ import { toast } from "sonner";
 function ProtectedRoute({ children }) {
   const { user } = useSelector((state) => state.auth);
 
-  
-    if (!user) {
+  if (!user) {
+    if (typeof window !== "undefined" && !localStorage.getItem("user")) {
       toast.error("Please login to continue");
-      return <Navigate to="/auth/login" replace />;
     }
-
+    return <Navigate to="/auth/login" replace />;
+  }
 
   return children;
 }

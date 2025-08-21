@@ -1,19 +1,17 @@
 import Menu from "./Menu";
-import "./sidebar.css"
+import "./sidebar.css";
 
 function BottomBar() {
   const recruitmentProcesses = [
-    { name: "Candidates", icon: "./candidate-icon.png" },
+    { name: "Candidates", path: "candidates", icon: "/candidate-icon.png" },
   ];
-
   const organizationProcesses = [
-    { name: "Employees", icon: "./emp-icon.png" },
-    { name: "Attendance", icon: "./attendance-icon.png" },
-    { name: "Leaves", icon: "./leave-icon.png" },
+    { name: "Employees", path: "employees", icon: "/emp-icon.png" },
+    { name: "Attendance", path: "attendance", icon: "/attendance-icon.png" },
+    { name: "Leaves", path: "leaves", icon: "/leave-icon.png" },
   ];
-
   const otherProcesses = [
-    { name: "LogOut", icon: "./logout-icon.png" },
+    { name: "Logout", path: "logout", icon: "/logout-icon.png" },
   ];
 
   return (

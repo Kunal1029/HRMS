@@ -1,85 +1,61 @@
-// Candidate.jsx
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Table from "../../components/Table/Table";
-
-const columns = [
-  { header: "Sr no.", accessor: "id" },
-  { header: "Candidate Name", accessor: "name" },
-  { header: "Email Address", accessor: "email" },
-  { header: "Phone Number", accessor: "phone" },
-  { header: "Position", accessor: "position" },
-  {
-    header: "Status",
-    accessor: "status",
-    render: (_, row) => (
-      <select value={row.status}>
-        <option>New</option>
-        <option>Selected</option>
-        <option>Rejected</option>
-      </select>
-    )
-  },
-  { header: "Experience", accessor: "experience" },
-  {
-    header: "Action",
-    accessor: "actions",
-    render: (_, row) => (
-      <div>
-        <button onClick={() => alert("Download Resume of " + row.name)}>
-          Download Resume
-        </button>
-        <button onClick={() => alert("Delete " + row.name)}>
-          Delete Candidate
-        </button>
-      </div>
-    )
-  }
-];
-
-const data = [
-  {
-    id: "01",
-    name: "Jacob William",
-    email: "jacob.william@example.com",
-    phone: "(252) 555-0111",
-    position: "Senior Developer",
-    status: "New",
-    experience: "1+"
-  },
-  {
-    id: "02",
-    name: "Guy Hawkins",
-    email: "kenzi.lawson@example.com",
-    phone: "(907) 555-0101",
-    position: "Human Resource Intern",
-    status: "New",
-    experience: "0"
-  },
-  {
-    id: "03",
-    name: "Arlene McCoy",
-    email: "arlene.mccoy@example.com",
-    phone: "(302) 555-0107",
-    position: "Full Time Designer",
-    status: "Selected",
-    experience: "3"
-  },
-  {
-    id: "04",
-    name: "Leslie Alexander",
-    email: "willie.jennings@example.com",
-    phone: "(207) 555-0119",
-    position: "Full Time Developer",
-    status: "Rejected",
-    experience: "0"
-  }
-];
+import { toast } from "sonner";
+import {
+  fetchCandidates,
+  removeCandidate,
+  editCandidate,
+  clearError,
+  clearSuccess,
+} from "../../redux/slices/candidateSlice";
+import { dummy } from "./dummy";
+import CandidateColumn from "./CandidateColumn";
 
 function Candidate() {
-  return (
-    <div>
-      <Table columns={columns} data={data} />
-    </div>
-  );
+  const dispatch = useDispatch();
+  const { error, success } = useSelector((state) => state.candidates);
+  const data = dummy; 
+  
+  const handleStatusChange = async (id, status) => {
+    try {
+      await dispatch(editCandidate({ id, candidateData: { status } })).unwrap();
+      toast.success("Status updated!");
+    } catch {
+      toast.error("Failed to update status");
+    }
+  };
+
+  const handleDownloadResume = (id, name) =>
+    toast.warning(`Download Resume of ${name}`);
+
+  const handleDeleteCandidate = async (id, name) => {
+    if (window.confirm(`Delete ${name}?`)) {
+      try {
+        await dispatch(removeCandidate(id)).unwrap();
+        toast.success(`${name} deleted!`);
+      } catch {
+        toast.error("Failed to delete candidate");
+      }
+    }
+  };
+
+  const columns = CandidateColumn({
+    handleDeleteCandidate,
+    handleDownloadResume,
+    handleStatusChange,
+  });
+
+  useEffect(() => {
+    dispatch(fetchCandidates());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (success) dispatch(clearSuccess());
+    if (error) dispatch(clearError());
+  }, [success, error, dispatch]);
+
+  return <Table columns={columns} data={data} />;
 }
 
 export default Candidate;

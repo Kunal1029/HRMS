@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import Logo from "../../logo/Logo";
-import Input from "../../forms/input";
+import Input from "../../forms/Input";
 import "./sidebar.css"
 
 function TopSideBar() {

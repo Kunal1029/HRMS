@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
 const express = require("express");
-const connectDB = require("./ConnectDB/connectDb");
+const connectDB = require("./ConnectDB/connectDb.js");
 const userRoutes = require("./routes/userRoute")
 const candidateRoutes = require("./routes/candidateRoute")
 const employeeRoutes = require("./routes/employeeRoute")
@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/user", userRoutes);
-app.use("/api/candidate", candidateRoutes)
+app.use("/api/candidates", candidateRoutes)
 app.use("/api/employee", employeeRoutes)
 app.use("/api/attendance", attendanceRoutes)
 app.use("/api/leave", leaveRoutes)

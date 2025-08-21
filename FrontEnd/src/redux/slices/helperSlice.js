@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   form: { type: 'login' },
-  location: { currentPath: '/' },
-  menu: { active: 'dashboard' },
+  location: { currentPath: '/candidates' },
+  menu: { active: 'Candidates' },
 };
 
 const helperSlice = createSlice({
@@ -21,7 +21,10 @@ const helperSlice = createSlice({
       state.menu.active = action.payload;
     },
     resetCurrentPath: (state) => {
-      state.location.currentPath = '/';
+      state.location.currentPath = '/candidates';
+    },
+    resetActiveMenu: (state) => {
+      state.menu.active = "Candidates";
     },
   },
 });
@@ -31,6 +34,7 @@ export const {
   setCurrentPath,
   setActiveMenu,
   resetCurrentPath,
+  resetActiveMenu
 } = helperSlice.actions;
 
 export const selectFormType = (state) => state.helper.form.type;

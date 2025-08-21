@@ -1,15 +1,14 @@
-//attendanceRoutes.js
 const express = require("express");
 const router = express.Router();
-const attendanceController = require("../controller/attendanceController");
-const { protect } = require("../controller/userController");
+const candidateController = require("../controller/candidateController");
+const { protect } = require("../controller/userController"); 
 
 // Routes
-router.get("/", protect, attendanceController.getAttendance);
-router.post("/", protect, attendanceController.addAttendance);
-router.put("/:id", protect, attendanceController.updateAttendance);
-router.delete("/:id", protect, attendanceController.deleteAttendance);
-router.get("/employee/:employeeId", protect, attendanceController.getAttendanceByEmployee);
-
+router.get("/", protect, candidateController.getCandidates);
+// router.post("/", protect, upload.single("resume"), candidateController.addCandidate);
+router.put("/:id", protect, candidateController.updateCandidate);
+router.delete("/:id", protect, candidateController.deleteCandidate);
+router.post("/",protect, candidateController.addCandidate)
+// router.get("/:id/resume", protect, candidateController.downloadResume);
 
 module.exports = router;

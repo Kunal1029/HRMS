@@ -11,13 +11,16 @@ function Table({ columns = [], data = [], className = "" }) {
             ))}
           </tr>
         </thead>
+
         <tbody>
           {data.length > 0 ? (
             data.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {columns.map((col, colIndex) => (
                   <td key={colIndex}>
-                    {col.render ? col.render(row[col.accessor], row) : row[col.accessor]}
+                    {col.render
+                      ? col.render(row[col.accessor], row, rowIndex) // pass rowIndex here
+                      : row[col.accessor]}
                   </td>
                 ))}
               </tr>

@@ -1,15 +1,17 @@
 .table-container {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 1.25rem;
+  border-top-left-radius: 1.25rem;
+  
 }
 
 .custom-table {
+  
   width: 100%;
   border-collapse: collapse;
-  min-width: 700px;
+  min-width: 600px;
 }
 
 .custom-table th,
@@ -24,6 +26,7 @@
   color: var(--color-white);
   font-weight: 600;
 }
+
 
 
 .no-data {
