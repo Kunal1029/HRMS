@@ -1,5 +1,6 @@
 import Table from "../../components/Table/Table";
 import LeaveColumn from "./LeaveColumn";
+import LeaveFilter from "./LeaveFilter";
 
 import { dummy } from "./dummy";
 
@@ -13,6 +14,7 @@ function Leave() {
   });
   return (
     <div>
+      <LeaveFilter />
       <Table columns={columns} data={dummycandidates} />
     </div>
   );

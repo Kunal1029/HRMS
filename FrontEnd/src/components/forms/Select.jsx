@@ -1,42 +1,64 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from "react";
+import "./forms.css";
 
 function Select({ 
   value, 
   onChange, 
   options,
-  placeholder = false,
-  disabled = false,
-  className = ""
+  placeholder = "Select...", 
+  className = "",
+  wdt="sm",
 }) {
-  const handleChange = (e) => {
-    if (onChange) {
-      onChange(e.target.value);
-    }
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef(null);
+
+  const handleSelect = (val) => {
+    onChange(val);
+    setOpen(false);
   };
 
+  // close dropdown if click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div>
-      <select
-        value={value || ""}
-        onChange={handleChange}
-        disabled={disabled}
-        className={className}
+    <div className={`custom-select-wrapper ${wdt} ${className}`} ref={wrapperRef}>
+      {/* Selected Value */}
+      <div 
+        className="custom-select-pill" 
+        onClick={() => setOpen(!open)}
       >
-        {placeholder && (
-          <option value="" disabled>
-            {placeholder}
-          </option>
-        )}
+        <span>{value || placeholder}</span>
+        <img 
+          src="/downIcon.png" 
+          alt="▼" 
+          className={`select-arrow ${open ? "open" : ""}`} 
+        />
+      </div>
 
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-
-      </select>
+      {/* Dropdown */}
+      {open && (
+        <ul className={`custom-select-dropdown ${wdt}`}>
+          {options.map((opt, i) => (
+            <li 
+              key={i} 
+              className="custom-select-option"
+              onClick={() => handleSelect(opt.value)}
+            >
+              {opt.label}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-  )
+  );
 }
 
-export default Select
+export default Select;

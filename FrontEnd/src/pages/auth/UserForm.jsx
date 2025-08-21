@@ -22,18 +22,19 @@ function UserForm() {
   }, [urlFormType, dispatch]);
 
   return (
-    <>
+    <div className="" style={{padding: "2rem"}}>
       <div>
         <Logo />
       </div>
 
       <div className="dash-form">
-        <Suspense fallback={<Fallback />}>
-          <Onboarding />
+        
+        <Suspense fallback={<Fallback/>}>
+        <Onboarding />
           {formType === "login" ? <Login /> : <Register />}
         </Suspense>
       </div>
-    </>
+    </div>
   );
 }
 

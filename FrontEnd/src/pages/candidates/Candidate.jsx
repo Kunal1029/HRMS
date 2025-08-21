@@ -11,12 +11,14 @@ import {
 } from "../../redux/slices/candidateSlice";
 import { dummy } from "./dummy";
 import CandidateColumn from "./CandidateColumn";
+import CandidateFilter from "./CandidateFilter";
+import "./candidates.css"
 
 function Candidate() {
   const dispatch = useDispatch();
   const { error, success } = useSelector((state) => state.candidates);
-  const data = dummy; 
-  
+  const data = dummy;
+
   const handleStatusChange = async (id, status) => {
     try {
       await dispatch(editCandidate({ id, candidateData: { status } })).unwrap();
@@ -55,7 +57,12 @@ function Candidate() {
     if (error) dispatch(clearError());
   }, [success, error, dispatch]);
 
-  return <Table columns={columns} data={data} />;
+  return (
+    <div className="mainCandidate" >
+      <CandidateFilter />
+      <Table columns={columns} data={data} />
+    </div>
+  );
 }
 
 export default Candidate;

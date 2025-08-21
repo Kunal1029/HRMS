@@ -2,6 +2,7 @@ import Table from "../../components/Table/Table";
 
 import { dummy } from "./dummy";
 import AttendanceColumn from "./AttendanceColumn";
+import AttendanceFilter from "./AttendanceFilter";
 
 function Attendance() {
   const data = dummy;
@@ -16,7 +17,7 @@ function Attendance() {
 
   return (
     <div>
-      {/* <Table columns={columns} data={candidates} /> */}
+      <AttendanceFilter />
       <Table columns={columns} data={data} />
     </div>
   );

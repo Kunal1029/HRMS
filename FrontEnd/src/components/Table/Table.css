@@ -1,17 +1,22 @@
 .table-container {
-  width: 100%;
+  /* width: 100%; */
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   border-top-right-radius: 1.25rem;
   border-top-left-radius: 1.25rem;
-  
+  min-height: 90vh;
+  width: 76vw;
+} 
+
+.tbdy{
+  width: 76vw;
 }
 
 .custom-table {
-  
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  
+  /* min-width: 600px; */
 }
 
 .custom-table th,
@@ -19,6 +24,7 @@
   padding: 0.75rem;
   text-align: left;
   white-space: nowrap;
+  
 }
 
 .custom-table th {

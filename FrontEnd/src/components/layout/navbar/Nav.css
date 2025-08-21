@@ -1,10 +1,11 @@
 .navBar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 76vw;
   padding: 8px 20px;
-  height: 72px;
-}
+  margin-bottom: 15px;
+} 
 
 .navBar .activeNav h2 {
   font-weight: 600;
@@ -14,8 +15,67 @@
   letter-spacing: 0;
 }
 
-.navBar .profile img {
+.navBar .profileNav img {
   width: 1.5rem;
   height: 1.5rem;
-  margin-left: 16px;
+  /* margin-left: 16px; */
 }
+
+.navBar .profileNav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.userProfileNav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.userProfileNav .proImg img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.userProfileNav .arrowImg img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.imgs {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out; 
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 90px; /* adjust according to your navbar height */
+  right: 20px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 10px 10px;
+  width: 200px;
+  z-index: 1000;
+}
+
+.profileDropdown li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 50px;
+}
+
+.profileDropdown li:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+

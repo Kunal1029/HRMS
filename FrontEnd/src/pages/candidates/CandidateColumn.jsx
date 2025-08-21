@@ -4,7 +4,6 @@ import Actions from "../../components/common/Actions";
 
 function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteCandidate) {
   const statusOptions = [
-    { value: "New", label: "New" },
     { value: "Scheduled", label: "Scheduled" },
     { value: "Ongoing", label: "Ongoing" },
     { value: "Selected", label: "Selected" },
@@ -25,6 +24,7 @@ function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteC
           value={row.status}
           onChange={(value) => handleStatusChange(row._id, value)}
           options={statusOptions}
+          placeholder="New"
         />
       ),
     },

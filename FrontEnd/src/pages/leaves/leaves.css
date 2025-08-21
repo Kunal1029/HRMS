@@ -1,3 +1,42 @@
 .docIcon img{
     width: 15px;
 }
+
+.leaveFilter {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.leaveFilter .rightSide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+.leaveFilter .leftSide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.rightSide .filterSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 3.125rem;
+  gap: 10px;
+}
+
+.rightSide .filterSearch img {
+  width: 14px;
+  height: 14px;
+  color: var(--color-primary);
+  margin-left: -5px;
+}

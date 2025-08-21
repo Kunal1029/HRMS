@@ -5,7 +5,7 @@ function Sidebar() {
   return (
     <div className='side-bar'>
       <TopSideBar />
-      <BottomBar />
+      <BottomBar /> 
     </div>
   )
 }
