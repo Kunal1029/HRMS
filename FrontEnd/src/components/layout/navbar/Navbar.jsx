@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { selectActiveMenu } from "../../../redux/slices/helperSlice";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
- 
+import EditProfileModal from "../../../pages/auth/EditProfileModal";
+
 function Navbar() {
   const [toggleIcon, setToggleIcon] = useState(false);
   const dropdownRef = useRef(null);
@@ -62,7 +63,9 @@ function Navbar() {
 
         {toggleIcon && (
           <ul className="profileDropdown">
-            <li>Edit Profile</li>
+            <li>
+              <EditProfileModal text="Edit Profile" />
+            </li>
             <li>Change Password</li>
             <li>Manage Notification</li>
           </ul>

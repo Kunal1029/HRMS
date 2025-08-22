@@ -1,6 +1,7 @@
 import Button from "../../components/common/Button";
 import Input from "../../components/forms/Input";
 import Select from "../../components/forms/Select";
+import NewCandidate from "./NewCandidate";
 import "./candidates.css";
 
 function CandidateFilter() {
@@ -40,15 +41,9 @@ function CandidateFilter() {
           />
         </div>
 
-        <Button
-          classParent=""
-          type="submit"
-          behaviour="primary"
-          size="sm"
-          className
-        >
-          Add Candidate
-        </Button>
+        
+
+        <NewCandidate />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Table from "../../components/Table/Table";
 import { toast } from "sonner";
@@ -12,7 +13,9 @@ import {
 import { dummy } from "./dummy";
 import CandidateColumn from "./CandidateColumn";
 import CandidateFilter from "./CandidateFilter";
-import "./candidates.css"
+import "./candidates.css";
+import FormModal from "../../components/modal/FormModal";
+import NewCandidate from "./NewCandidate";
 
 function Candidate() {
   const dispatch = useDispatch();
@@ -58,7 +61,7 @@ function Candidate() {
   }, [success, error, dispatch]);
 
   return (
-    <div className="mainCandidate" >
+    <div className="mainCandidate">
       <CandidateFilter />
       <Table columns={columns} data={data} />
     </div>

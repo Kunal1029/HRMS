@@ -1,17 +1,20 @@
 import Actions from "../../components/common/Actions";
-import "./employees.css"
+import EmployeeModal from "./EmployeeModal";
+import "./employees.css";
 
 function EmployeeColumn(handleEditEmployee, handleDeleteEmployee) {
   const columns = [
-    { 
-      header: "Sr no.", 
-      accessor: "id", 
-      render: (_, row, index) => index + 1 
+    {
+      header: "Sr no.",
+      accessor: "id",
+      render: (_, row, index) => index + 1,
     },
-    { 
-      header: "Profile", 
+    {
+      header: "Profile",
       accessor: "profile",
-      render: (value) => <img src={value} alt="Profile" className="employee-profile" />
+      render: (value) => (
+        <img src={value} alt="Profile" className="employee-profile" />
+      ),
     },
     { header: "Employee Name", accessor: "name" },
     { header: "Email Address", accessor: "email" },
@@ -23,9 +26,13 @@ function EmployeeColumn(handleEditEmployee, handleDeleteEmployee) {
       header: "Action",
       accessor: "actions",
       render: (_, row) => {
+        // const actionItems = [
+        //   { item: "Edit", fn: () => handleEditEmployee(row._id) },
+        //   { item: "Delete", fn: () => handleDeleteEmployee(row._id, row.name)},
+        // ];
         const actionItems = [
-          { item: "Edit", fn: () => handleEditEmployee(row._id) },
-          { item: "Delete", fn: () => handleDeleteEmployee(row._id, row.name) },
+          { compo: <EmployeeModal text="Edit" /> },
+          { compo: <EmployeeModal text="Delete" /> },
         ];
 
         return <Actions items={actionItems} />;

@@ -1,6 +1,7 @@
 import Table from "../../components/Table/Table";
 import LeaveColumn from "./LeaveColumn";
 import LeaveFilter from "./LeaveFilter";
+import "./leaves.css"
 
 import { dummy } from "./dummy";
 
@@ -13,7 +14,7 @@ function Leave() {
     handleStatusChange,
   });
   return (
-    <div>
+    <div className="mainLeave">
       <LeaveFilter />
       <Table columns={columns} data={dummycandidates} />
     </div>

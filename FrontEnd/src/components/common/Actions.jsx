@@ -32,12 +32,13 @@ function Actions({ items = [] }) {
   return (
     <>
       <div className="dropdown" ref={ref} onClick={() => setShow(!show)}>
-        <div className="actions" >
+        <div className="actions">
           <img src="/Iconactions.png" alt="actions" />
         </div>
       </div>
 
-      {show && portalRoot &&
+      {show &&
+        portalRoot &&
         ReactDOM.createPortal(
           <ul
             className="action-dropdown"
@@ -49,18 +50,28 @@ function Actions({ items = [] }) {
               zIndex: 9999,
             }}
           >
-            {items.map((x, i) => (
-              <li
-                key={i}
-                className="action-option"
-                onClick={() => {
-                  x.fn();
-                  setShow(false);
-                }}
-              >
-                {x.item}
-              </li>
-            ))}
+            {items.map((x, i) =>
+              x.item ? (
+                <li
+                  key={i}
+                  className="action-option"
+                  onClick={() => {
+                    setShow(false);
+                    x.item ? x.fn() : "";
+                  }}
+                >
+                  {x.item }
+                </li>
+              ) : (
+                <li
+                  key={i}
+                  className="action-option"
+                  
+                >
+                  {x.compo}
+                </li>
+              )
+            )}
           </ul>,
           portalRoot
         )}

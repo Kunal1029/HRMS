@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "../../components/forms/Select";
 import Actions from "../../components/common/Actions";
+import AttendanceModal from "./AttendanceModal";
 
 function AttendanceColumn(handleStatusChange, handleEditEmployee, handleDeleteEmployee) {
   const statusOptions = [
@@ -36,9 +37,13 @@ function AttendanceColumn(handleStatusChange, handleEditEmployee, handleDeleteEm
       header: "Action",
       accessor: "actions",
       render: (_, row) => {
+        // const actionItems = [
+        //   { item: "Edit", fn: () => handleEditEmployee(row._id) },
+        //   { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
+        // ];
         const actionItems = [
-          { item: "Edit", fn: () => handleEditEmployee(row._id) },
-          { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
+          { compo: <AttendanceModal text="Edit" /> },
+          { compo: <AttendanceModal text="Delete" /> },
         ];
 
         return <Actions items={actionItems} />;

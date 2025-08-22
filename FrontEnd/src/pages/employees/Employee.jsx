@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { dummy } from "./dummy";
 import EmployeeColumn from "./EmployeeColumn";
 import EmployeeFilter from "./EmployeeFilter";
+import "./employees.css"
 
 function Employee() {
   const data = dummy;
@@ -20,7 +21,7 @@ function Employee() {
   });
 
 
-  return <div>
+  return <div className="mainEmp">
     <EmployeeFilter />
     <Table columns={columns} data={data} />;
     </div>

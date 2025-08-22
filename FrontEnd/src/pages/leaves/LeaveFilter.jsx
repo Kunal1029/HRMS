@@ -1,6 +1,7 @@
 import Button from "../../components/common/Button";
 import Input from "../../components/forms/Input";
 import Select from "../../components/forms/Select";
+import LeaveModal from "./LeaveModal";
 import "./leaves.css";
 
 function LeaveFilter() {
@@ -32,16 +33,7 @@ function LeaveFilter() {
             onChange={() => {}}
           />
         </div>
-
-        <Button
-          classParent=""
-          type="submit"
-          behaviour="primary"
-          size="sm"
-          className
-        >
-          Add Leave
-        </Button>
+        <LeaveModal />
       </div>
     </div>
   );

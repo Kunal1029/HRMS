@@ -32,6 +32,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  cursor: pointer;
 }
 
 .userProfileNav .proImg img {
@@ -61,7 +62,7 @@
   list-style: none;
   padding: 10px 10px;
   width: 200px;
-  z-index: 1000;
+  z-index: 100000 !important;
 }
 
 .profileDropdown li {
@@ -69,6 +70,7 @@
   cursor: pointer;
   font-size: 15px;
   border-radius: 50px;
+   z-index: 1000010 !important;
 }
 
 .profileDropdown li:hover {
