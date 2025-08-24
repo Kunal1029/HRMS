@@ -3,7 +3,7 @@ import Input from "../../components/forms/Input";
 import Select from "../../components/forms/Select";
 import NewCandidate from "./NewCandidate";
 import "./candidates.css";
-
+ 
 function CandidateFilter() {
   const statusOptions = [
     { value: "New", label: "New" },
@@ -19,12 +19,17 @@ function CandidateFilter() {
     { value: "Human Resource", label: "Human Resource" },
   ];
 
-  return (
+  function myChn(val){
+    console.log("candi filter ", val)
+  } 
+
+  return (  
     <div className="candidateFilter">
       <div className="leftSide">
-        <Select options={statusOptions} placeholder="Status" />
+        
+        <Select options={statusOptions} onChange={(e)=>myChn(e)} placeholder="Status" />
+        <Select wdt="md" onChange={(e)=>myChn(e)}  options={positionOptions} placeholder="Position" />
 
-        <Select wdt="md" options={positionOptions} placeholder="Position" />
       </div>
 
       <div className="rightSide">
@@ -37,7 +42,7 @@ function CandidateFilter() {
             classInput="search-input"
             value=""
             formType="search"
-            onChange={() => {}}
+            onChange={() => ("")}
           />
         </div>
 

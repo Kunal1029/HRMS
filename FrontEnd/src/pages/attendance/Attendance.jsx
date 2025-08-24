@@ -11,10 +11,15 @@ function Attendance() {
   const handleEditEmployee = () => {};
   const handleDeleteEmployee = () => {};
 
-  const columns = AttendanceColumn({
+  const handleAttendanceStatus = (id,e)=>{
+    console.log(id,e)
+  }
+
+  const columns = AttendanceColumn(
+    handleAttendanceStatus,
     handleEditEmployee,
     handleDeleteEmployee,
-  });
+  );
 
   return (
     <div className="mainAttendance">

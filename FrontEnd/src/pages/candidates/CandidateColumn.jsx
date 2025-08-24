@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import Select from "../../components/forms/Select";
 import Actions from "../../components/common/Actions";
 
@@ -28,19 +28,19 @@ function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteC
         />
       ),
     },
-    { header: "Experience", accessor: "experience" },
-    {
-      header: "Action",
-      accessor: "actions",
-      render: (_, row) => {
-        const actionItems = [
-          { item: "Download Resume", fn: () => handleDownloadResume(row._id, row.name) },
-          { item: "Delete Candidate", fn: () => handleDeleteCandidate(row._id, row.name) },
-        ];
+    { header: "Experience", accessor: "experience"},
+    // {
+    //   header: "Action",
+    //   accessor: "actions",
+    //   render: (_, row) => {
+    //     const actionItems = [
+    //       { item: "Download Resume", fn: () => handleDownloadResume(row._id, row.name) },
+    //       { item: "Delete Candidate", fn: () => handleDeleteCandidate(row._id, row.name) },
+    //     ];
 
-        return <Actions items={actionItems} />;
-      },
-    },
+    //     return <Actions items={actionItems} />;
+    //   },
+    // },
   ];
 
   return columns;

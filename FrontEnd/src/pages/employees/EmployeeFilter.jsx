@@ -8,10 +8,14 @@ function EmployeeFilter() {
     { value: "Developer", label: "Developer" },
     { value: "Human Resource", label: "Human Resource" },
   ];
- 
+  
+  function positionFilter(e){
+    alert(e)
+  }
+
   return (
     <div className="employeeFilter">
-      <Select wdt="md" options={positionOptions} placeholder="Position" />
+      <Select wdt="md" options={positionOptions} onChange={positionFilter} placeholder="Position" />
 
       <div className="rightSide">
         <div className="filterSearch">

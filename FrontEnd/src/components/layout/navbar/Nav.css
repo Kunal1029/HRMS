@@ -53,8 +53,8 @@
 
 .profileDropdown {
   position: absolute;
-  top: 90px; /* adjust according to your navbar height */
-  right: 20px;
+  top: 50px; /* adjust according to your navbar height */
+  right: 50px;
   background: #fff;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -75,7 +75,6 @@
 
 .profileDropdown li:hover {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-
 }
 
 

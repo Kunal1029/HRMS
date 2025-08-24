@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import {
   fetchCandidates,
   removeCandidate,
-  editCandidate,
   clearError,
   clearSuccess,
 } from "../../redux/slices/candidateSlice";
@@ -14,24 +13,18 @@ import { dummy } from "./dummy";
 import CandidateColumn from "./CandidateColumn";
 import CandidateFilter from "./CandidateFilter";
 import "./candidates.css";
-import FormModal from "../../components/modal/FormModal";
-import NewCandidate from "./NewCandidate";
 
 function Candidate() {
   const dispatch = useDispatch();
   const { error, success } = useSelector((state) => state.candidates);
   const data = dummy;
 
-  const handleStatusChange = async (id, status) => {
-    try {
-      await dispatch(editCandidate({ id, candidateData: { status } })).unwrap();
-      toast.success("Status updated!");
-    } catch {
-      toast.error("Failed to update status");
-    }
-  };
+  const handleStatusChange = (id, val)=>{
+    console.log("CC ", id, val)
+  }
 
-  const handleDownloadResume = (id, name) =>
+
+  const handleDownloadResume = (name) =>
     toast.warning(`Download Resume of ${name}`);
 
   const handleDeleteCandidate = async (id, name) => {
@@ -45,11 +38,11 @@ function Candidate() {
     }
   };
 
-  const columns = CandidateColumn({
-    handleDeleteCandidate,
-    handleDownloadResume,
+  const columns = CandidateColumn(
     handleStatusChange,
-  });
+    handleDownloadResume,
+    handleDeleteCandidate
+  );
 
   useEffect(() => {
     dispatch(fetchCandidates());
@@ -62,7 +55,7 @@ function Candidate() {
 
   return (
     <div className="mainCandidate">
-      <CandidateFilter />
+      <CandidateFilter  />
       <Table columns={columns} data={data} />
     </div>
   );

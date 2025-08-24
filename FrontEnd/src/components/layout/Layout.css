@@ -4,4 +4,17 @@
   /* gap: 16px; */
   justify-content: center;
 }
- 
+
+/* .mobSideBar {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .webView {
+    display: none;
+  }
+  .mobSideBar {
+    display: inline;
+    border: 2px solid red;
+  }
+} */

@@ -9,15 +9,19 @@ function LeaveFilter() {
 
   const statusOptions = [
     { value: "Pending", label: "Pending" },
-    { value: "Approved", label: "Developer" },
+    { value: "Approved", label: "Approved" },
     { value: "Rejected", label: "Rejected" },
   ];
+
+  const leaveFilters = (e)=>{
+    alert(e)
+  }
 
   return (
     <div className="leaveFilter">
       <div className="leftSide">
         
-        <Select options={statusOptions} placeholder="Status" />
+        <Select options={statusOptions} placeholder="Status" onChange={leaveFilters} />
       </div>
 
       <div className="rightSide">

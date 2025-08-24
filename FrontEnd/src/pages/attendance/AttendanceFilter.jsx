@@ -10,9 +10,12 @@ function AttendanceFilter() {
     { value: "Work from home", label: "Work from home" },
   ];
 
+  function attendanceFilter(e){
+    alert(e)
+  }
   return (
     <div className="attendanceFilter">
-        <Select wdt="md" options={statusOptions} placeholder="Status" />
+        <Select wdt="md" options={statusOptions} onChange={attendanceFilter} placeholder="Status" />
 
       <div className="rightSide">
         <div className="filterSearch">

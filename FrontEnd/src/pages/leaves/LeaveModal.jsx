@@ -7,53 +7,40 @@ function LeaveModal() {
 
   const leaveField = [
     {
-      name: "fullName",
-      label: "Full Name",
+      name: "Search Employeee",
+      label: "Search Employeee",
       type: "text",
-      placeholder: "Enter full name",
+      placeholder: "Search Employeee",
       required: true,
     },
     {
-      name: "email",
-      label: "Email Address",
-      type: "email",
-      placeholder: "Enter email",
-      required: true,
-    },
-    {
-      name: "phone",
-      label: "Phone Number",
+      name: "designation",
+      label: "Designation",
       type: "text",
-      placeholder: "Enter phone",
+      placeholder: "Enter Designation",
+    },
+    {
+      name: "document",
+      label: "Documents",
+      type: "file",
       required: true,
     },
     {
-      name: "department",
-      label: "Department",
-      type: "text",
-      placeholder: "Enter department",
-    },
-    {
-      name: "position",
-      label: "Position",
-      type: "select",
-      required: true,
-      options: [
-        { label: "Intern", value: "Intern" },
-        { label: "Designer", value: "Designer" },
-        { label: "Developer", value: "Developer" },
-      ],
-    },
-    {
-      name: "dateOfJoining",
-      label: "Date of Joining",
+      name: "leaveDate",
+      label: "Leave Date",
       type: "date",
       required: true,
+    },
+    {
+      name: "reason",
+      label: "Reason",
+      type: "text",
+      placeholder: "Enter Reason",
     },
   ];
 
   const handleSubmit = (data) => {
-    console.log("Candidate Data:", data);
+    console.log("leave Data:", data);
     // Call API here
   };
 
@@ -73,7 +60,7 @@ function LeaveModal() {
       <FormModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title="Add New Candidate"
+        title="Add New Leave"
         fields={leaveField}
         onSubmit={handleSubmit}
         btnText="Save"

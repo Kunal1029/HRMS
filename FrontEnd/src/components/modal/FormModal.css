@@ -8,10 +8,11 @@
 .form-modal-container {
   /* width: 100px; */
   /* border: 2px solid red; */
-}
+  height: 100%;
+} 
 
 .form-modal-group {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .form-modal-label {

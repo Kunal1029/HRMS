@@ -1,3 +1,4 @@
+// import { useState } from "react";
 import "./forms.css";
 function Input({
   label,
@@ -6,33 +7,52 @@ function Input({
   value,
   onChange,
   placeholder = "",
-  error = "",
+  error = "", 
   required = false,
   disabled = false,
-  formType = false
+  formType = false,
 }) {
+  
+ 
+
   return (
-    <div className={`${formType === "search" ? "" : "form-group"} `}>
+    <div 
+      className={`${
+        formType === "search"
+          ? ""
+          : formType === "modalForm"
+          ? "form-group modalTypeForm"
+          : "form-group"
+      } `}
+    >
       {label && (
         <label htmlFor={name} className="form-label">
-          {label}{required && <span>*</span>}
+          {label}
+          {required && <span>*</span>}
         </label>
       )}
 
-      <input
-        id={name}
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        disabled={disabled}
-        required={required}
-        className={`form-input ${error ? "input-error" : ""} ${formType === "search" ? "search-input" : "normal-input"}`}
-      />
+      
+        <input
+          id={name}
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          disabled={disabled}
+          required={required}
+          className={`form-input ${error ? "input-error" : ""} ${
+            formType === "search"
+              ? "search-input"
+              : formType === "modalForm"
+              ? "modalTypeForm normal-input"
+              : "normal-input"
+          } `}
+        />
+  
 
       {error && <p className="error-text">{error}</p>}
-
     </div>
   );
 }

@@ -15,6 +15,18 @@ function NewCandidate() {
       required: true,
     },
     {
+      name: "position",
+      label: "Position",
+      type: "select",
+      required: true,
+      options: [
+        { label: "Intern", value: "Intern" },
+        { label: "Designer", value: "Designer" },
+        { label: "Developer", value: "Developer" },
+        { label: "Other", value: "Other" },
+      ],
+    },
+    {
       name: "email",
       label: "Email Address",
       type: "email",
@@ -29,26 +41,16 @@ function NewCandidate() {
       required: true,
     },
     {
-      name: "department",
-      label: "Department",
-      type: "text",
-      placeholder: "Enter department",
+      name: "experience",
+      label: "Experience",
+      type: "number",
+      placeholder: "Enter Experience",
     },
+    
     {
-      name: "position",
-      label: "Position",
-      type: "select",
-      required: true,
-      options: [
-        { label: "Intern", value: "Intern" },
-        { label: "Designer", value: "Designer" },
-        { label: "Developer", value: "Developer" },
-      ],
-    },
-    {
-      name: "dateOfJoining",
-      label: "Date of Joining",
-      type: "date",
+      name: "resume",
+      label: "Resume",
+      type: "file",
       required: true,
     },
   ];
@@ -62,7 +64,7 @@ function NewCandidate() {
     <>
       <Button
         classParent=""
-        type="submit"
+        type="submit" 
         behaviour="primary"
         size="sm"
         className
