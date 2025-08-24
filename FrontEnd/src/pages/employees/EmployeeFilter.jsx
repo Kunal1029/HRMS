@@ -25,9 +25,9 @@ function EmployeeFilter() {
             name="search"
             placeholder="Search"
             classInput="search-input"
-            value=""
+            // value={``}
             formType="search"
-            onChange={() => {}}
+            onChange={() => ("")}
           />
         </div>
       </div>

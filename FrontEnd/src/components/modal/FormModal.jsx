@@ -91,7 +91,7 @@ const FormModal = ({
                     required={field.required}
                     disabled={field.disabled}
                     error={field.error}
-                    formType="modalForm"
+                    formType={`${field?.inpType === "modalSearchBar" ? "modalSearchBar" : "modalForm"}`}
                   />
                 )}
               </div>

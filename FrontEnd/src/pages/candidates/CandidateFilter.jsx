@@ -23,6 +23,10 @@ function CandidateFilter() {
     console.log("candi filter ", val)
   } 
 
+  function searchCandidate(e){
+    console.log(e)
+  }
+
   return (  
     <div className="candidateFilter">
       <div className="leftSide">
@@ -40,9 +44,8 @@ function CandidateFilter() {
             name="search"
             placeholder="Search"
             classInput="search-input"
-            value=""
             formType="search"
-            onChange={() => ("")}
+            onChange={() => searchCandidate}
           />
         </div>
 

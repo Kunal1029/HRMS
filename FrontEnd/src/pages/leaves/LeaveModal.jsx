@@ -9,33 +9,36 @@ function LeaveModal() {
     {
       name: "Search Employeee",
       label: "Search Employeee",
-      type: "text",
+      type: "text", 
       placeholder: "Search Employeee",
-      required: true,
+      inpType: "modalSearchBar"
     },
     {
       name: "designation",
       label: "Designation",
       type: "text",
       placeholder: "Enter Designation",
+      inpType: "modalForm"
     },
     {
       name: "document",
       label: "Documents",
       type: "file",
-      required: true,
+      inpType: "modalForm"
     },
     {
       name: "leaveDate",
-      label: "Leave Date",
+      label: "Leave Date", 
       type: "date",
       required: true,
+      inpType: "modalForm"
     },
     {
       name: "reason",
       label: "Reason",
       type: "text",
       placeholder: "Enter Reason",
+      inpType: "modalForm"
     },
   ];
 

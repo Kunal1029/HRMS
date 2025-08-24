@@ -1,4 +1,5 @@
 import Select from "../../components/forms/Select";
+import AttendanceModal from "./AttendanceModal"
 
 function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDeleteEmployee) {
   const statusOptions = [
@@ -30,22 +31,22 @@ function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDele
         />
       ),
     },
-    // {
-    //   header: "Action",
-    //   accessor: "actions",
-    //   render: (_, row) => {
-    //     // const actionItems = [
-    //     //   { item: "Edit", fn: () => handleEditEmployee(row._id) },
-    //     //   { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
-    //     // ];
-    //       const actionItems = [
-    //         { compo: <AttendanceModal text="Edit" /> },
-    //         { compo: <AttendanceModal text="Delete" /> },
-    //       ];
+    {
+      header: "Action",
+      accessor: "actions",
+      render: (_, row) => {
+        // const actionItems = [
+        //   { item: "Edit", fn: () => handleEditEmployee(row._id) },
+        //   { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
+        // ];
+          const actionItems = [
+            { compo: <AttendanceModal text="Edit" /> },
+            { compo: <AttendanceModal text="Delete" /> },
+          ];
 
-    //     return <Actions items={actionItems} />;
-    //   },
-    // },
+        return <Actions items={actionItems} />;
+      },
+    },
   ];
 
   return columns;
