@@ -14,6 +14,8 @@
   --color-warning: yellow;
   --color-dark: black;
   --color-white: white;
+  --color-yellow:  #E8B000;
+
 
   --font-family: 'Nunito', sans-serif;
   --transition: 0.2s ease-in-out;
@@ -30,6 +32,9 @@ body {
 }
 }
 
+.filterData{
+  position: absolute;
+}
 button {
   font-family: inherit;
   cursor: pointer;

@@ -12,16 +12,15 @@ function Select({
   labal,
 }) {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState({val: null, color: ""});
   const wrapperRef = useRef(null);
 
-  const handleSelect = (val) => {
+  const handleSelect = (val, color) => {
     onChange(val);
-    setSelectedValue(val);
+    setSelectedValue({val: val, color: color});
     setOpen(false);
   };
 
-  // close dropdown if click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -48,7 +47,7 @@ function Select({
         ""
       )}
       <div className="custom-select-pill" onClick={() => setOpen(!open)}>
-        <span> {selectedValue || value || placeholder}</span>
+        <span style={{ color: `var(--color-${selectedValue.color})` }}> {selectedValue.val || value || placeholder}</span>
         <img
           src="/downIcon.png"
           alt=""
@@ -60,10 +59,10 @@ function Select({
       {open && (
         <ul className={`custom-select-dropdown ${wdt}`}>
           {options.map((opt, i) => (
-            <li
+            <li 
               key={i}
               className="custom-select-option"
-              onClick={() => handleSelect(opt.value)}
+              onClick={() => handleSelect(opt.value, opt.color)}
             >
               {opt.label}
             </li>

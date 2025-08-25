@@ -5,29 +5,23 @@ import "./leaves.css"
 
 function LeaveColumn(handleStatusChange) {
   const statusOptions = [
-    { value: "Pending", label: "Pending" },
-    { value: "Approved", label: "Approved" },
-    { value: "Rejected", label: "Rejected" },
+    { value: "Pending", label: "Pending", color: "yellow" },
+    { value: "Approved", label: "Approved" , color: "success" },
+    { value: "Rejected", label: "Rejected", color: "danger" },
   ];
 
   const columns = [
-    { 
-      header: "Sr no.", 
-      accessor: "id", 
-      render: (_, row, index) => index + 1 
-    },
+    // { 
+    //   header: "Sr no.", 
+    //   accessor: "id", 
+    //   render: (_, row, index) => index + 1 
+    // },
     { 
       header: "Profile", 
       accessor: "profile",
-      render: (_, row) => (
-        <div className="flex items-center gap-2">
-          <img 
-            src={row.profile} 
-            alt={row.name} 
-            className="w-8 h-8 rounded-full object-cover" 
-          />
-        </div>
-      )
+      render: (value) => (
+        <img src={value} alt="Profile" className="employee-profile" />
+      ),
     },
     { header: "Name", accessor: "name" },
     { header: "Date", accessor: "date" },

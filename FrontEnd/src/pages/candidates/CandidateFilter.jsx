@@ -1,10 +1,14 @@
-import Button from "../../components/common/Button";
+import { useState } from "react";
 import Input from "../../components/forms/Input";
 import Select from "../../components/forms/Select";
 import NewCandidate from "./NewCandidate";
+// import DebouncedSearch from "./DebouncedSearch"; // import
 import "./candidates.css";
- 
+import Debounce from "../../components/common/Debounce";
+
 function CandidateFilter() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const statusOptions = [
     { value: "New", label: "New" },
     { value: "Scheduled", label: "Scheduled" },
@@ -19,37 +23,50 @@ function CandidateFilter() {
     { value: "Human Resource", label: "Human Resource" },
   ];
 
-  function myChn(val){
-    console.log("candi filter ", val)
-  } 
-
-  function searchCandidate(e){
-    console.log(e)
+  const dummySearchData = ["ks", "ps", "js", "ss", "pks", "s"];
+  function changeStatusOptions(e) {
+    console.log(e);
   }
-
-  return (  
+  return (
     <div className="candidateFilter">
       <div className="leftSide">
-        
-        <Select options={statusOptions} onChange={(e)=>myChn(e)} placeholder="Status" />
-        <Select wdt="md" onChange={(e)=>myChn(e)}  options={positionOptions} placeholder="Position" />
-
+        <Select
+          options={statusOptions}
+          onChange={changeStatusOptions}
+          placeholder="Status"
+        />
+        <Select
+          options={positionOptions}
+          onChange={changeStatusOptions}
+          placeholder="Position"
+          wdt="md"
+        />
       </div>
 
       <div className="rightSide">
-        <div className="filterSearch">
-          <img src="/search.png" alt="" />
-          <Input
-            type="search"
-            name="search"
-            placeholder="Search"
-            classInput="search-input"
-            formType="search"
-            onChange={() => searchCandidate}
-          />
+        <div>
+          <div className="filterSearch">
+            <img src="/search.png" alt="" />
+            <Input
+              type="search"
+              name="search"
+              placeholder="Search"
+              classInput="search-input"
+              formType="search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          {searchTerm.length > 0 && (
+            <div className="filterData">
+              <Debounce
+                inputText={searchTerm}
+                data={dummySearchData}
+                delay={500}
+              />
+            </div>
+          )}
         </div>
-
-        
 
         <NewCandidate />
       </div>

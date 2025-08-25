@@ -11,13 +11,11 @@ function CandidateColumn(
   const [toggleActionImg, setToggleImg] = useState({ id: null, toggle: false });
 
   const statusOptions = [
-    { value: "Scheduled", label: "Scheduled" },
-    { value: "Ongoing", label: "Ongoing" },
-    { value: "Selected", label: "Selected" },
-    { value: "Rejected", label: "Rejected" },
+    { value: "Scheduled", label: "Scheduled", color: "yellow"},
+    { value: "Ongoing", label: "Ongoing", color: "success"  },
+    { value: "Selected", label: "Selected", color: "primary"  },
+    { value: "Rejected", label: "Rejected", color: "danger"  },
   ];
-
-  // const actionOptions = [{ item: "Download" }];
 
   const columns = [
     { header: "Sr no.", accessor: "id", render: (_, row, index) => index + 1 },

@@ -4,7 +4,6 @@ import { selectActiveMenu } from "../../../redux/slices/helperSlice";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import ProfileDropDown from "./ProfileDropDown";
-import EditProfileModal from "../../../pages/auth/EditProfileModal";
 
 function Navbar() {
   const [toggleIcon, setToggleIcon] = useState(false);
@@ -24,36 +23,33 @@ function Navbar() {
 
   return (
     <>
-    <div className="navBar" >
-      <div className="activeNav">
-        <h2>{displayName}</h2>
-      </div>
-      <div className="profileNav" >
-        <img src="/email-icon.png" alt="email" />
-        <img src="/bell-icon.png" alt="bell" />
-
-        <div
-          className="userProfileNav" 
-          onClick={() => setToggleIcon(!toggleIcon)}
-        >
-          <div className="proImg">
-            <img src="/profile-icon.png" alt="" />
-          </div>
-
-          <div className="arrowImg" >
-            <img
-              src="/downIcon.png"
-              alt=""
-              className={`${toggleIcon ? "imgs" : ""}`}
-            />
-          </div>
-         
+      <div className="navBar">
+        <div className="activeNav">
+          <h2>{displayName}</h2>
         </div>
-         
+        <div className="profileNav">
+          <img src="/email-icon.png" alt="email" />
+          <img src="/bell-icon.png" alt="bell" />
+
+          <div
+            className="userProfileNav"
+            onClick={() => setToggleIcon(!toggleIcon)}
+          >
+            <div className="proImg">
+              <img src="/profile-icon.png" alt="" />
+            </div>
+
+            <div className="arrowImg">
+              <img
+                src="/downIcon.png"
+                alt=""
+                className={`${toggleIcon ? "imgs" : ""}`}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      
-    </div>
-    {toggleIcon && <ProfileDropDown cls="profileDropdown" />}
+      {toggleIcon && <ProfileDropDown cls="profileDropdown" />}
     </>
   );
 }

@@ -1,35 +1,37 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Select from "../../components/forms/Select";
-import AttendanceModal from "./AttendanceModal"
+import AttendanceModal from "./AttendanceModal";
 import WarningModal from "../../components/modal/WarningModal";
 
-function AttendanceColumn(handleAttendanceStatus, handleEditAttendance, handleDeleteAttendance) {
+function AttendanceColumn(
+  handleAttendanceStatus,
+  handleEditAttendance,
+  handleDeleteAttendance
+) {
   const statusOptions = [
-    { value: "Present", label: "Present" },
-    { value: "Absent", label: "Absent" },
+    { value: "Present", label: "Present", color: "success" },
+    { value: "Absent", label: "Absent", color: "danger" },
   ];
 
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const [toggleActionImg, setToggleImg] = useState({ id: null, toggle: false });
-    const handleSubmit = () => {
-      setIsOpen(false);
-  
-      setTimeout(() => { 
-        alert("del success fully");
-      }, 1000);
-    };
-  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [toggleActionImg, setToggleImg] = useState({ id: null, toggle: false });
+  const handleSubmit = () => {
+    setIsOpen(false);
+
+    setTimeout(() => {
+      alert("del success fully");
+    }, 1000);
+  };
 
   const columns = [
-    { header: "Profile", accessor: "profile", render: (_, row) => (
-        <img
-          src={row.profile}
-          alt={row.name}
-          className="w-10 h-10 rounded-full"
-        />
-      )
+    {
+      header: "Profile",
+      accessor: "profile",
+      render: (value) => (
+        <img src={value} alt="Profile" className="employee-profile" />
+      ),
     },
     { header: "Attendance Name", accessor: "name" },
     { header: "Position", accessor: "position" },
@@ -43,15 +45,14 @@ function AttendanceColumn(handleAttendanceStatus, handleEditAttendance, handleDe
           value={row.status}
           onChange={(value) => handleAttendanceStatus(row._id, value)}
           options={statusOptions}
+          placeholder=""  //db
         />
       ),
-    }, 
+    },
     {
       header: "Action",
       accessor: "actions",
       render: (_, row) => (
-       
-
         <div className="actionsAttendance">
           <div
             className="actionAttenDot"

@@ -1,6 +1,6 @@
 .mainCandidate {
   width: 76vw;
-  margin-left: auto;
+  margin-left: auto; 
 }
 
 .candidateFilter {
@@ -86,6 +86,9 @@
 .actionDropDown li:hover {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+
+
 
 @media (max-width: 1250px) {
   .candidateFilter .rightSide {

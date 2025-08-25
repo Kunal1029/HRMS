@@ -64,17 +64,17 @@
   }
 
   .mainLeave .leaveCal .table-container {
-    width: 100%
+    width: 100%;
   }
 
   .mainLeave .leaveCal .calendar-container {
     width: 29vw;
     display: none;
   }
-.mainLeave .leaveCal {
-  display: flex;
-  justify-content: end;
-}
+  .mainLeave .leaveCal {
+    display: flex;
+    justify-content: end;
+  }
   .leaveFilter {
     width: 76vw;
     display: flex;
@@ -84,8 +84,7 @@
     margin-bottom: 20px;
   }
 
-  .mainLeave .tbl{
+  .mainLeave .tbl {
     width: 70vw;
   }
-
 }

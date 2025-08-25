@@ -1,9 +1,8 @@
 .topside {
   display: flex;
   flex-direction: column;
-  align-items: start; 
-  gap: 40px; 
-  
+  align-items: start;
+  gap: 40px;
 }
 
 .sidelogo {
@@ -41,18 +40,18 @@
   margin-left: -5px;
 }
 
-.middleBar{
+.middleBar {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.middleBar .department{
+.middleBar .department {
   font-weight: 500;
   font-size: 1rem;
   color: var(--color-dark-gray);
 }
-.middleBar .workOn{
+.middleBar .workOn {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -61,49 +60,90 @@
   transition: transform 0.2s ease-in-out;
 }
 
-
-.workOn .normBtn button p{
-  color: var(--color-white)
+.workOn .normBtn button p {
+  color: var(--color-white);
 }
 
-.activeTabStyle{
+.activeTabStyle {
   font-weight: 900;
   color: var(--color-primary);
 }
 
-.middleBar img{
+.middleBar img {
   width: 16px;
   height: 14px;
 }
-.workOn .activeBar{
+.workOn .activeBar {
   width: 8px;
   background-color: var(--color-primary);
   height: 38px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   transition: transform 0.2s ease-in-out;
-  
 }
-.middleBar a{
+.middleBar a {
   text-decoration: none;
   color: var(--color-black);
-  
 }
 
-.middleBar .workOn p{
+.middleBar .workOn p {
   font-weight: 400;
   font-size: 1rem;
   color: var(--color-black);
 }
-.side-menu{
+.side-menu {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-.side-bar{
+.side-bar {
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 20vw;
   padding: 10px;
+  
 }
+
+/* .responsiveMobBar {
+  display: none;
+}
+
+.toggleBar {
+  display: flex;
+  flex-direction: column;
+}
+.toggleBar .toggleLine {
+  width: 12px;
+  height: 1px;
+  margin-bottom: 2px;
+  background-color: black;
+}
+
+@media (max-width: 950px) {
+  .responsiveBar {
+    display: none;
+  }
+  .responsiveMobBar {
+    display: inline;
+  }
+  .ssks {
+    display: flex;
+    border: 2px solid red;
+    width: 100%;
+    z-index: 999;
+  }
+  .ssks span {
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .respMob{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 21vw;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+} */

@@ -1,4 +1,4 @@
-.btn { 
+.btn {
   /* width: 8.81rem; */
   height: 2.38rem;
   transform: rotate(0deg);
@@ -11,11 +11,11 @@
   animation-duration: 0ms;
 }
 
-.btn-text{
+.btn-text {
   font-weight: 500;
   font-style: normal;
-  font-size: 1rem; 
-  line-height: 1; 
+  font-size: 1rem;
+  line-height: 1;
   letter-spacing: 0;
   color: var(--color-white);
 }
@@ -26,7 +26,7 @@
   align-items: center;
   margin: auto;
   height: 100vh;
-  background: #f9fafb; 
+  background: #f9fafb;
 }
 
 .spinner {
@@ -38,7 +38,7 @@
   animation: spin 1s linear infinite;
 }
 
-.dropdown{
+.dropdown {
   position: absolute;
 }
 .actions {
@@ -60,7 +60,7 @@
   background: var(--color-white);
   list-style: none;
   padding: 10px 10px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .action-option {
@@ -71,13 +71,44 @@
 
 .action-option:hover {
   border-radius: 44px;
-    box-shadow: 0 0.25rem 1.25rem 0 rgba(18, 18, 18, 0.15);;
-
+  box-shadow: 0 0.25rem 1.25rem 0 rgba(18, 18, 18, 0.15);
 }
 
+.debounce {
+  position: relative;
+  left: 20px;
+  background-color: whitesmoke;
+  width: 13rem;
+  margin-top: 8px;
+  z-index: 999;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 1.25rem;
+  transition: 5s ease-in-out linear;
+}
 
+.debounce p {
+  padding: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  background-color: var(--color-white);
+  margin-bottom: 2px;
+  transition: 0.2s ease-in-out linear;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  
+  transition: 5s ease-in-out linear;
+}
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

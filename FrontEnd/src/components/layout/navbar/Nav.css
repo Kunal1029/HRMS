@@ -83,3 +83,10 @@
     margin: auto;
   }
 }
+
+@media (max-width: 950px) {
+  .navBar {
+    width: 100vw;
+    margin: auto;
+  }
+}
