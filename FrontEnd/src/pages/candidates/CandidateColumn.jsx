@@ -1,8 +1,15 @@
-  import React from "react";
+import React, { useState } from "react";
 import Select from "../../components/forms/Select";
-import Actions from "../../components/common/Actions";
+import CandidateAction from "./CandidateAction";
+import "./candidates.css";
 
-function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteCandidate) {
+function CandidateColumn(
+  handleStatusChange
+  // handleDownloadResume,
+  // handleDeleteCandidate
+) {
+  const [toggleActionImg, setToggleImg] = useState({id:null, toggle: false});
+
   const statusOptions = [
     { value: "Scheduled", label: "Scheduled" },
     { value: "Ongoing", label: "Ongoing" },
@@ -10,12 +17,15 @@ function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteC
     { value: "Rejected", label: "Rejected" },
   ];
 
+  // const actionOptions = [{ item: "Download" }];
+
   const columns = [
     { header: "Sr no.", accessor: "id", render: (_, row, index) => index + 1 },
     { header: "Candidate Name", accessor: "name" },
     { header: "Email Address", accessor: "email" },
     { header: "Phone Number", accessor: "phone" },
     { header: "Position", accessor: "position" },
+
     {
       header: "Status",
       accessor: "status",
@@ -28,19 +38,34 @@ function CandidateColumn(handleStatusChange, handleDownloadResume, handleDeleteC
         />
       ),
     },
-    { header: "Experience", accessor: "experience"},
-    // {
-    //   header: "Action",
-    //   accessor: "actions",
-    //   render: (_, row) => {
-    //     const actionItems = [
-    //       { item: "Download Resume", fn: () => handleDownloadResume(row._id, row.name) },
-    //       { item: "Delete Candidate", fn: () => handleDeleteCandidate(row._id, row.name) },
-    //     ];
 
-    //     return <Actions items={actionItems} />;
-    //   },
-    // },
+    { header: "Experience", accessor: "experience" },
+    {
+      header: "Action",
+      accessor: "actions",
+
+      render: (_, row) => (
+        <div className="actionCandidate" onClick={() => setToggleImg({id: row._id, toggle: !toggleActionImg.toggle})}>
+
+
+          <div className="actionDot"></div>
+          <div className="actionDot"></div>
+          <div className="actionDot"></div>
+
+          {toggleActionImg.id === row._id && toggleActionImg.toggle && (
+            <ul>
+              <li>Download</li>
+              <li>
+                <CandidateAction
+                  text="Delete"
+                  title="Are you sure you want to delete?"
+                />
+              </li>
+            </ul>
+          )}
+        </div>
+      ),
+    },
   ];
 
   return columns;

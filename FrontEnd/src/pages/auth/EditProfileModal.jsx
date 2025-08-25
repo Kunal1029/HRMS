@@ -9,7 +9,7 @@ function EditProfileModal({ text, editFields, anyLinks }) {
   };
 
   return (
-    <>
+    <> 
       <p onClick={() => setIsOpen(true)}>{text}</p>
 
       <FormModal

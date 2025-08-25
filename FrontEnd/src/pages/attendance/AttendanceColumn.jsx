@@ -30,23 +30,23 @@ function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDele
           options={statusOptions}
         />
       ),
-    },
-    {
-      header: "Action",
-      accessor: "actions",
-      render: (_, row) => {
-        // const actionItems = [
-        //   { item: "Edit", fn: () => handleEditEmployee(row._id) },
-        //   { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
-        // ];
-          const actionItems = [
-            { compo: <AttendanceModal text="Edit" /> },
-            { compo: <AttendanceModal text="Delete" /> },
-          ];
+    }, 
+    // {
+      // header: "Action",
+      // accessor: "actions",
+      // render: (_, row) => {
+      //   const actionItems = [
+      //     { item: "Edit", fn: () => handleEditEmployee(row._id) },
+      //     { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
+      //   ];
+          // const actionItems = [
+          //   { compo: <AttendanceModal text="Edit" /> },
+          //   { compo: <AttendanceModal text="Delete" /> },
+          // ];
 
-        return <Actions items={actionItems} />;
-      },
-    },
+        // return <Actions items={actionItems} />;
+      // },
+    // },
   ];
 
   return columns;

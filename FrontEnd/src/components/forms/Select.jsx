@@ -41,7 +41,8 @@ function Select({
     >
       {labal ? (
         <label htmlFor={selectedValue} className="form-label">
-          {labal}<span style={{color: "red"}}>*</span>
+          {labal}
+          <span style={{ color: "red" }}>*</span>
         </label>
       ) : (
         ""

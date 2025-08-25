@@ -67,7 +67,7 @@ function ProfileDropDown({ cls }) {
         {
           title: "Forget Password?",
           link: "click here",
-        },
+        }, 
       ],
     },
     {

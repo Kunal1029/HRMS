@@ -44,6 +44,21 @@
   margin-left: -5px;
 }
 
+.actionCandidate{
+  display: flex;
+  /* width: 15px; */
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5px;
+}
+
+.actionCandidate .actionDot{
+  width: 4px;
+  height: 4px;
+  border-radius: 100% !important;
+  background-color: black;
+}
+
 @media (max-width: 1250px) {
   .candidateFilter .rightSide {
     flex-direction: column;

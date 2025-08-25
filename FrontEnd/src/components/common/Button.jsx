@@ -3,7 +3,7 @@ import "./common.css";
 function Button({
   children,
   onClick,
-  type = "button",
+  type = "button", 
   behaviour = "primary",
   size = "md",
   disabled = false,

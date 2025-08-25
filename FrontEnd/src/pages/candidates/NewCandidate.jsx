@@ -46,7 +46,7 @@ function NewCandidate() {
       type: "number",
       placeholder: "Enter Experience",
     },
-    
+
     {
       name: "resume",
       label: "Resume",
@@ -62,16 +62,18 @@ function NewCandidate() {
 
   return (
     <>
-      <Button
-        classParent=""
-        type="submit" 
-        behaviour="primary"
-        size="sm"
-        className
-        onClick={() => setIsOpen(true)}
-      >
-        Add Candidate
-      </Button>
+    
+        <Button
+          classParent=""
+          type="submit"
+          behaviour="primary"
+          size="sm"
+          className
+          onClick={() => setIsOpen(true)}
+        >
+          Add Candidate
+        </Button>
+    
 
       <FormModal
         isOpen={isOpen}
