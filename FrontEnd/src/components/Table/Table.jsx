@@ -4,7 +4,7 @@ function Table({ columns = [], data = [], className = "" }) {
   return (
     <div className="table-container">
       <table className={`custom-table ${className}`}>
-        <thead>
+        <thead> 
           <tr>
             {columns.map((col, i) => (
               <th key={i}>{col.header}</th>

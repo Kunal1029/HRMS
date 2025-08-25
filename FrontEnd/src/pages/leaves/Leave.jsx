@@ -18,7 +18,9 @@ function Leave() {
     <div className="mainLeave">
       <LeaveFilter />
       <div className="leaveCal">
-        <Table columns={columns} data={dummycandidates} />
+        <div className="tbl">
+          <Table columns={columns} data={dummycandidates} />
+        </div>
         <Calendar />
       </div>
     </div>

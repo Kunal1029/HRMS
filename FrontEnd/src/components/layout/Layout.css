@@ -9,12 +9,9 @@
   display: none;
 }
 
-@media (max-width: 1000px) {
-  .webView {
-    display: none;
-  }
-  .mobSideBar {
-    display: inline;
-    border: 2px solid red;
-  }
-} */
+*/
+@media (max-width: 1250px) {
+ .layout {
+  justify-content: space-between;
+}
+}

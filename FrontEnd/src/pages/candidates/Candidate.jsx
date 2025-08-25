@@ -56,7 +56,9 @@ function Candidate() {
   return (
     <div className="mainCandidate">
       <CandidateFilter  />
-      <Table columns={columns} data={data} />
+      <div className="tbl">
+        <Table columns={columns} data={data} />
+      </div>
     </div>
   );
 }

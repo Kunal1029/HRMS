@@ -5,7 +5,7 @@
   width: 76vw;
   padding: 8px 20px;
   margin-bottom: 15px;
-} 
+}
 
 .navBar .activeNav h2 {
   font-weight: 600;
@@ -43,17 +43,17 @@
 .userProfileNav .arrowImg img {
   width: 20px;
   height: 20px;
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.2s ease-in-out;
 }
 
 .imgs {
   transform: rotate(180deg);
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.2s ease-in-out;
 }
 
 .profileDropdown {
   position: absolute;
-  top: 50px; 
+  top: 50px;
   right: 50px;
   background: #fff;
   border-radius: 10px;
@@ -70,13 +70,16 @@
   cursor: pointer;
   font-size: 15px;
   border-radius: 50px;
-   z-index: 1000010 !important;
+  z-index: 1000010 !important;
 }
 
 .profileDropdown li:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
+@media (max-width: 1250px) {
+  .navBar {
+    width: 70vw;
+    margin: auto;
+  }
+}

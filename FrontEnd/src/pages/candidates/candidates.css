@@ -90,19 +90,23 @@
 @media (max-width: 1250px) {
   .candidateFilter .rightSide {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: end;
     gap: 1rem;
   }
   .candidateFilter .leftSide {
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: center; */
     gap: 1rem;
   }
-
+  .mainCandidate .tbl {
+    margin: auto;
+    width: 70vw;
+  }
   .candidateFilter {
     align-items: center;
     justify-content: center;
   }
 }
+
+

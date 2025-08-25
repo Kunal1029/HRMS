@@ -23,7 +23,9 @@ function Employee() {
 
   return <div className="mainEmp">
     <EmployeeFilter />
-    <Table columns={columns} data={data} />;
+    <div className="tbl">
+      <Table columns={columns} data={data} />;
+    </div>
     </div>
 }
 

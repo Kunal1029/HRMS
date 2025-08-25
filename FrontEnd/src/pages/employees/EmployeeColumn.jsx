@@ -18,11 +18,7 @@ function EmployeeColumn(handleEditEmployee, handleDeleteEmployee) {
   };
 
   const columns = [
-    {
-      header: "Sr no.",
-      accessor: "id",
-      render: (_, row, index) => index + 1,
-    },
+    
     {
       header: "Profile",
       accessor: "profile",

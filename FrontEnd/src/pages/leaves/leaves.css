@@ -1,20 +1,20 @@
-.docIcon img{
-    width: 15px;
+.docIcon img {
+  width: 15px;
 }
 
-.mainLeave{
-  width: 76vw; 
+.mainLeave {
+  width: 76vw;
 }
-.mainLeave .leaveCal{
+.mainLeave .leaveCal {
   display: flex;
   justify-content: space-between;
 }
 
-.mainLeave .leaveCal .table-container{
+.mainLeave .leaveCal .table-container {
   width: 48vw;
 }
 
-.mainLeave .leaveCal .calendar-container{
+.mainLeave .leaveCal .calendar-container {
   width: 29vw;
 }
 
@@ -55,4 +55,37 @@
   height: 14px;
   color: var(--color-primary);
   margin-left: -5px;
+}
+
+@media (max-width: 1250px) {
+  .mainLeave {
+    width: 73vw;
+    margin: auto;
+  }
+
+  .mainLeave .leaveCal .table-container {
+    width: 100%
+  }
+
+  .mainLeave .leaveCal .calendar-container {
+    width: 29vw;
+    display: none;
+  }
+.mainLeave .leaveCal {
+  display: flex;
+  justify-content: end;
+}
+  .leaveFilter {
+    width: 76vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .mainLeave .tbl{
+    width: 70vw;
+  }
+
 }

@@ -24,7 +24,9 @@ function Attendance() {
   return (
     <div className="mainAttendance">
       <AttendanceFilter />
-      <Table columns={columns} data={data} />
+      <div className="tbl">
+        <Table columns={columns} data={data} />
+      </div>
     </div>
   );
 }

@@ -18,8 +18,11 @@ function EmployeeFilter() {
       <Select wdt="md" options={positionOptions} onChange={positionFilter} placeholder="Position" />
 
       <div className="rightSide">
+
         <div className="filterSearch">
+
           <img src="/search.png" alt="" />
+
           <Input
             type="search"
             name="search"
@@ -29,6 +32,7 @@ function EmployeeFilter() {
             formType="search"
             onChange={() => ("")}
           />
+          
         </div>
       </div>
     </div>

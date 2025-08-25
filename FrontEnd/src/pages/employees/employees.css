@@ -4,7 +4,10 @@
   border-radius: 50%;
   object-fit: cover;
 }
-.mainEmp{width: 76vw;}
+.mainEmp {
+  width: 76vw;
+  margin: auto;
+}
 .employeeFilter {
   width: 76vw;
   display: flex;
@@ -18,14 +21,13 @@
   width: 15rem;
   border: 1px solid var(--color-dark-gray);
   border-radius: 3.125rem;
- }
+}
 
 .employeeFilter .filterSearch img {
   width: 14px;
   height: 14px;
   color: var(--color-primary);
 }
-
 
 .actionEmpDot {
   display: flex;
@@ -69,4 +71,24 @@
 
 .actionEmpDropDown li:hover {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1250px) {
+  .mainEmp .tbl {
+    width: 70vw;
+    margin: auto;
+    /* border: 2px solid red; */
+  }
+  .mainEmp{
+    margin: auto;
+  }
+  .employeeFilter {
+    width: 73vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    margin-top: 20px;
+  }
 }

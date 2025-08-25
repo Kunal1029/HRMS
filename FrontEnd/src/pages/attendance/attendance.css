@@ -1,27 +1,26 @@
-.mainAttendance{
+.mainAttendance {
   width: 76vw;
 }
 .attendanceFilter {
   width: 76vw;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-} 
+}
 
 .attendanceFilter .filterSearch {
   width: 15rem;
   border: 1px solid var(--color-dark-gray);
   border-radius: 3.125rem;
- }
+}
 
 .attendanceFilter .filterSearch img {
   width: 14px;
   height: 14px;
   color: var(--color-primary);
 }
-
 
 .actionAttenDot {
   display: flex;
@@ -65,4 +64,20 @@
 
 .actionAttenDropDown li:hover {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1250px) {
+  .mainAttendance .tbl {
+    width: 70vw;
+    margin: auto;
+  }
+  .attendanceFilter {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 20px;
+  }
 }
