@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Calendar</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <!-- Header -->
+        <div class="calendar-header">
+            <h1>Leave Calendar</h1>
+        </div>
+        
+        <!-- Calendar Navigation -->
+        <div class="calendar-content">
+            <div class="calendar-navigation">
+                <button id="prevMonth" class="nav-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <h2 id="currentMonth">September, 2024</h2>
+                
+                <button id="nextMonth" class="nav-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Days of week header -->
+            <div class="days-header">
+                <div class="day-label">S</div>
+                <div class="day-label">M</div>
+                <div class="day-label">T</div>
+                <div class="day-label">W</div>
+                <div class="day-label">T</div>
+                <div class="day-label">F</div>
+                <div class="day-label">S</div>
+            </div>
+            
+            <!-- Calendar Grid -->
+            <div id="calendarGrid" class="calendar-grid">
+                <!-- Days will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Approved Leaves Section -->
+        <div class="approved-leaves">
+            <h3>Approved Leaves</h3>
+            
+            <div class="leave-item">
+                <div class="avatar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                
+                <div class="employee-info">
+                    <div class="employee-name">Cody Fisher</div>
+                    <div class="employee-title">Senior Backend Developer</div>
+                </div>
+                
+                <div class="leave-date">8/09/24</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

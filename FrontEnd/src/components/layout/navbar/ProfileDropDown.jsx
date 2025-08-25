@@ -70,33 +70,33 @@ function ProfileDropDown({ cls }) {
         }, 
       ],
     },
-    {
-      name: "Manage Notification",
-      fields: [
-        {
-          name: "deleteNotification",
-          label: "Delete Notification",
-          type: "radio",
-          placeholder: "",
-          required: false,
-        },
-        {
-          name: "showAllNotification",
-          label: "Show Notification",
-          type: "radio",
-          //   placeholder: "Enter email",
-          required: false,
-        },
-        {
-          name: "sendToMail",
-          label: "Allow Send notification to your mail",
-          type: "radio",
-          //   placeholder: "Enter phone",
-          required: false,
-        },
-      ],
-    },
-  ];
+    // {
+    //   name: "Manage Notification",
+    //   fields: [
+    //     {
+    //       name: "deleteNotification",
+    //       label: "Delete Notification",
+    //       type: "radio",
+    //       placeholder: "",
+    //       required: false,
+    //     },
+    //     {
+    //       name: "showAllNotification",
+    //       label: "Show Notification",
+    //       type: "radio",
+    //       //   placeholder: "Enter email",
+    //       required: false,
+    //     },
+    //     {
+    //       name: "sendToMail",
+    //       label: "Allow Send notification to your mail",
+    //       type: "radio",
+    //       //   placeholder: "Enter phone",
+    //       required: false,
+    //     },
+    //   ],
+    // },
+  ]; 
   return (
     <div>
       <ul className={cls}>

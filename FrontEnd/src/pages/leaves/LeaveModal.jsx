@@ -5,7 +5,8 @@ import Button from "../../components/common/Button";
 function LeaveModal() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const leaveField = [
+  const leaveField =
+   [
     {
       name: "Search Employeee",
       label: "Search Employeee",

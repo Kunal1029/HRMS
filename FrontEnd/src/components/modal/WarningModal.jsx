@@ -21,7 +21,7 @@ function WarningModal({ isOpen, onClose, title, text, extrabtn, onSubmit }) {
 
         <div className="warningBtn">
           <Button
-            classParent="warnBtn"
+            classParent="warnBtn normBtn"
             type="submit"
             behaviour="primary"
             size="sm"

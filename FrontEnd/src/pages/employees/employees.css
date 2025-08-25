@@ -25,3 +25,48 @@
   height: 14px;
   color: var(--color-primary);
 }
+
+
+.actionEmpDot {
+  display: flex;
+  /* width: 15px; */
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5px;
+}
+
+.actionEmpDot .actionEDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 100% !important;
+  background-color: black;
+}
+
+.actionsEmployee {
+  position: relative;
+}
+
+.actionEmpDropDown {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 10px 10px;
+  width: 200px;
+  z-index: 999;
+}
+
+.actionEmpDropDown li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 50px;
+}
+
+.actionEmpDropDown li:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}

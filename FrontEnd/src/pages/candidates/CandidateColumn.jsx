@@ -8,7 +8,7 @@ function CandidateColumn(
   // handleDownloadResume,
   // handleDeleteCandidate
 ) {
-  const [toggleActionImg, setToggleImg] = useState({id:null, toggle: false});
+  const [toggleActionImg, setToggleImg] = useState({ id: null, toggle: false });
 
   const statusOptions = [
     { value: "Scheduled", label: "Scheduled" },
@@ -45,15 +45,20 @@ function CandidateColumn(
       accessor: "actions",
 
       render: (_, row) => (
-        <div className="actionCandidate" onClick={() => setToggleImg({id: row._id, toggle: !toggleActionImg.toggle})}>
-
-
-          <div className="actionDot"></div>
-          <div className="actionDot"></div>
-          <div className="actionDot"></div>
+        <div className="actions">
+          <div
+            className="actionCandidate"
+            onClick={() => 
+              setToggleImg({ id: row._id, toggle: !toggleActionImg.toggle })
+            }
+          >
+            <div className="actionDot"></div>
+            <div className="actionDot"></div>
+            <div className="actionDot"></div>
+          </div>
 
           {toggleActionImg.id === row._id && toggleActionImg.toggle && (
-            <ul>
+            <ul className="actionDropDown">
               <li>Download</li>
               <li>
                 <CandidateAction

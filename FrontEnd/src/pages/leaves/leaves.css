@@ -3,7 +3,19 @@
 }
 
 .mainLeave{
-  width: 76vw;
+  width: 76vw; 
+}
+.mainLeave .leaveCal{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainLeave .leaveCal .table-container{
+  width: 48vw;
+}
+
+.mainLeave .leaveCal .calendar-container{
+  width: 29vw;
 }
 
 .leaveFilter {

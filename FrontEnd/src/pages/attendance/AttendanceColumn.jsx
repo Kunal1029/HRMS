@@ -1,11 +1,26 @@
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
 import Select from "../../components/forms/Select";
 import AttendanceModal from "./AttendanceModal"
+import WarningModal from "../../components/modal/WarningModal";
 
-function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDeleteEmployee) {
+function AttendanceColumn(handleAttendanceStatus, handleEditAttendance, handleDeleteAttendance) {
   const statusOptions = [
     { value: "Present", label: "Present" },
     { value: "Absent", label: "Absent" },
   ];
+
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const [toggleActionImg, setToggleImg] = useState({ id: null, toggle: false });
+    const handleSubmit = () => {
+      setIsOpen(false);
+  
+      setTimeout(() => { 
+        alert("del success fully");
+      }, 1000);
+    };
+  
 
   const columns = [
     { header: "Profile", accessor: "profile", render: (_, row) => (
@@ -16,7 +31,7 @@ function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDele
         />
       )
     },
-    { header: "Employee Name", accessor: "name" },
+    { header: "Attendance Name", accessor: "name" },
     { header: "Position", accessor: "position" },
     { header: "Department", accessor: "department" },
     { header: "Task", accessor: "task", render: (_, row) => row.task || "--" },
@@ -31,22 +46,45 @@ function AttendanceColumn(handleAttendanceStatus, handleEditEmployee, handleDele
         />
       ),
     }, 
-    // {
-      // header: "Action",
-      // accessor: "actions",
-      // render: (_, row) => {
-      //   const actionItems = [
-      //     { item: "Edit", fn: () => handleEditEmployee(row._id) },
-      //     { item: "Delete", fn: () => handleDeleteEmployee(row._id) },
-      //   ];
-          // const actionItems = [
-          //   { compo: <AttendanceModal text="Edit" /> },
-          //   { compo: <AttendanceModal text="Delete" /> },
-          // ];
+    {
+      header: "Action",
+      accessor: "actions",
+      render: (_, row) => (
+       
 
-        // return <Actions items={actionItems} />;
-      // },
-    // },
+        <div className="actionsAttendance">
+          <div
+            className="actionAttenDot"
+            onClick={() =>
+              setToggleImg({ id: row._id, toggle: !toggleActionImg.toggle })
+            }
+          >
+            <div className="actionADot"></div>
+            <div className="actionADot"></div>
+            <div className="actionADot"></div>
+          </div>
+
+          {toggleActionImg.id === row._id && toggleActionImg.toggle && (
+            <ul className="actionAttenDropDown">
+              <li>
+                <AttendanceModal text="Edit" />
+              </li>
+              <li>
+                <p onClick={() => setIsOpen(true)}>Delete</p>
+              </li>
+              <WarningModal
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                title="Are you sure you want to delete?"
+                text="Delete Attendance"
+                onSubmit={handleSubmit}
+                extrabtn="Delete"
+              />
+            </ul>
+          )}
+        </div>
+      ),
+    },
   ];
 
   return columns;

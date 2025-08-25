@@ -13,12 +13,24 @@ function EmployeeModal({text}) {
       required: true,
     },
     {
+      name: "position",
+      label: "Position",
+      type: "select",
+      required: true,
+      options: [
+        { label: "Intern", value: "Intern" },
+        { label: "Designer", value: "Designer" },
+        { label: "Developer", value: "Developer" },
+      ],
+    },
+    {
       name: "email",
       label: "Email Address",
       type: "email",
       placeholder: "Enter email",
       required: true,
     },
+     
     {
       name: "phone",
       label: "Phone Number",
@@ -32,21 +44,17 @@ function EmployeeModal({text}) {
       type: "text",
       placeholder: "Enter department",
     },
-    {
-      name: "position",
-      label: "Position",
-      type: "select",
-      required: true,
-      options: [
-        { label: "Intern", value: "Intern" },
-        { label: "Designer", value: "Designer" },
-        { label: "Developer", value: "Developer" },
-      ],
-    },
+   
     {
       name: "dateOfJoining",
       label: "Date of Joining",
       type: "date",
+      required: true,
+    },
+    {
+      name: "Profile Photo",
+      label: "Profile",
+      type: "file",
       required: true,
     },
   ];

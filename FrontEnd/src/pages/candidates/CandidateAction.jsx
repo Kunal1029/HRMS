@@ -10,8 +10,8 @@ function CandidateAction({ text, title }) {
     
     setTimeout(()=>{
         alert("del success fully")
-    },1000)
-  }
+    },1000) 
+  } 
 
   return (
     <div>

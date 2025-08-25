@@ -61,9 +61,10 @@
   transition: transform 0.2s ease-in-out;
 }
 
-/* .middleBar .workOn:hover{
-  transform: scale(1.01);
-} */
+
+.workOn .normBtn button p{
+  color: var(--color-white)
+}
 
 .activeTabStyle{
   font-weight: 900;

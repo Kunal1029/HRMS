@@ -4,11 +4,11 @@
 .attendanceFilter {
   width: 76vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-}
+} 
 
 .attendanceFilter .filterSearch {
   width: 15rem;
@@ -20,4 +20,49 @@
   width: 14px;
   height: 14px;
   color: var(--color-primary);
+}
+
+
+.actionAttenDot {
+  display: flex;
+  /* width: 15px; */
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5px;
+}
+
+.actionAttenDot .actionADot {
+  width: 4px;
+  height: 4px;
+  border-radius: 100% !important;
+  background-color: black;
+}
+
+.actionsAttendance {
+  position: relative;
+}
+
+.actionAttenDropDown {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 10px 10px;
+  width: 200px;
+  z-index: 999;
+}
+
+.actionAttenDropDown li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 50px;
+}
+
+.actionAttenDropDown li:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }

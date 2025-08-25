@@ -12,7 +12,7 @@ function EmployeeFilter() {
   function positionFilter(e){
     alert(e)
   }
-
+ 
   return (
     <div className="employeeFilter">
       <Select wdt="md" options={positionOptions} onChange={positionFilter} placeholder="Position" />
