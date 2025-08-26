@@ -130,7 +130,7 @@ exports.isAuthenticated = asyncHandler(async (req, res, next) => {
 
 exports.checkTokenStatus = asyncHandler(async (req, res) => {
     const token = req.cookies.token;
-    
+
     if (!token) {
         throw new CustomError("No token found", 401);
     }
@@ -139,7 +139,7 @@ exports.checkTokenStatus = asyncHandler(async (req, res) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const now = Math.floor(Date.now() / 1000);
         const timeLeft = decoded.exp - now;
-        
+
         if (timeLeft <= 0) {
             throw new CustomError("Token has expired", 401);
         }

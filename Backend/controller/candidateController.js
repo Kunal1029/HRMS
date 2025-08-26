@@ -4,6 +4,8 @@ const { asyncHandler } = require("../utils/middleware");
 const path = require("path");
 const fs = require("fs");
 
+const Employee = require("../model/employeeModel")
+
 // Get all candidates
 exports.getCandidates = asyncHandler(async (req, res) => {
   const candidates = await Candidate.find();
@@ -89,3 +91,33 @@ exports.downloadResume = asyncHandler(async (req, res) => { //leave for later
 
   res.download(filePath);
 });
+
+exports.selectCandidate = asyncHandler(async (req, res) => {
+  const { email, ...data } = req.body;
+
+  if (!email) {
+    throw new CustomError("Email not found", 404)
+  }
+
+  const isCandidate = await Candidate.find({ email })
+
+  if (!isCandidate) {
+    throw new CustomError("Candidate not found", 400)
+  }
+
+  const isAlreadyEmp = await Employee.find({ email })
+
+  if (isAlreadyEmp) {
+    throw new CustomError("Candidate is already an Employee", 400)
+  }
+
+  const newEmp = await Employee.create(data);
+
+  res.status(200).json({
+    success: true,
+    newEmp: newEmp,
+    message: "candidated selected successfully!"
+  })
+
+})
+
