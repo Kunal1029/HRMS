@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { type } = require("os");
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -26,6 +27,9 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  updatedAt:{
+    type: Date,
+  }
 });
 
 const User = mongoose.model("User", userSchema);
