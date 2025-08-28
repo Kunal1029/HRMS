@@ -88,7 +88,7 @@ exports.getUserInfo = asyncHandler(async (req, res) => {
 
 exports.protect = asyncHandler(async (req, res, next) => {
     const token = req.cookies.token;
-    // console.log("protect ", token)
+    
     if (!token) return next(new CustomError("Not authorized", 401));
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
